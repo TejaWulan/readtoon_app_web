@@ -1,18 +1,20 @@
 import React from "react";
 import EmblaCarousel from "./EmblaCarousel";
 
-import ImageHero from "../../assets/img/image_manhwa1.jpg";
-import BgElement from "../../assets/img/image_manhwa2.jpg";
-import BgElement1 from "../../assets/img/image_manhwa3.jpg";
+import Element1 from "../../assets/img/slides/heroslides1.png";
+import Element2 from "../../assets/img/slides/heroslides2.png";
+import Element3 from "../../assets/img/slides/heroslides3.png";
+import Element4 from "../../assets/img/slides/heroslides4.png";
 
 export default function Hero() {
-  const slides = [ImageHero, BgElement, BgElement1];
-
-  const options = { loop: true };
+  const slides = [Element1, Element2, Element3, Element4];
 
   return (
-    <section className="w-full">
-      <EmblaCarousel slides={slides} options={options} />
-    </section>
+  <section className="w-full flex justify-center">
+  <div className="w-full max-w-[1440px]">
+    <EmblaCarousel slides={slides} options={{ loop: true }} />
+  </div>
+</section>
+
   );
 }
