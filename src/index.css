@@ -24,11 +24,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
+
 
 h1 {
   font-size: 3.2em;
@@ -95,4 +94,32 @@ button:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.nav-account-dropdown .dropdown-toggle::after {
+  margin-left: 4px;   /* beri jarak kecil */
+  vertical-align: middle !important;
+}
+.search-btn {
+  border-color: #66c7ff !important;
+  color: #66c7ff !important;
+}
+
+.search-btn:hover,
+.search-btn:active,
+.search-btn:focus {
+  background-color: #66c7ff !important;
+  border-color: #66c7ff !important;
+  color: white !important;
+  box-shadow: none !important;
+}
+/* Hilangkan caret bawaan Bootstrap */
+.custom-dropdown .dropdown-toggle::after {
+  display: none !important;
+}
+
+/* Atur caret baru agar sejajar */
+.dropdown-arrow {
+  font-size: 16px;
+  margin-left: 4px;
+  margin-top: 1px;
 }

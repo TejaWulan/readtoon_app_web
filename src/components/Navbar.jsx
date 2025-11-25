@@ -20,7 +20,7 @@ function NavbarToon() {
             className="d-inline-block align-top"
             style={{ objectFit: "contain" }}
           />
-          <span className="fw-bold fs-4 text-primary">MACATOON</span>
+          <span className="text-[#66c7ff] font-semibold text-xs sm:text-sm mt-1 fs-4">MacaToon</span>
         </Navbar.Brand>
 
         {/* Toggle Mobile */}
@@ -35,26 +35,29 @@ function NavbarToon() {
             navbarScroll
           >
              {/* Trend */}
-  <Nav.Link href="#trend" className="d-flex align-items-center gap-1 text-primary ">
+  <Nav.Link href="#trend" className="d-flex align-items-center gap-1 text-[#66c7ff] font-semibold  ">
     <i className="bx bx-like fs-5 d-inline-block" style={{ lineHeight: 1 }}></i>
     Trend
   </Nav.Link>
 
   {/* Shop */}
-  <Nav.Link href="#shop" className="d-flex align-items-center gap-1 text-primary">
+  <Nav.Link href="#shop" className="d-flex align-items-center gap-1 text-[#66c7ff] font-semibold ">
     <i className="bx bx-cart fs-5 d-inline-block" style={{ lineHeight: 1 }}></i>
     Shop
   </Nav.Link>
 
-         <NavDropdown
-    title={
-      <span className="d-flex align-items-center text-primary">
-        <i className="bx bx-user-circle fs-5 d-inline-block" style={{ lineHeight: 1 }}></i>
-        Account
-      </span>
-    }
-    id="navbarScrollingDropdown"
-  >
+        <NavDropdown
+  id="navbarScrollingDropdown"
+  className="custom-dropdown"
+  title={
+    <span className="d-flex align-items-center gap-1 text-[#66c7ff] font-semibold">
+      <i className="bx bx-user-circle fs-5 d-inline-block"></i>
+      Account
+      <i className="bx bx-chevron-down dropdown-arrow"></i> {/* caret baru */}
+    </span>
+  }
+>
+
     <NavDropdown.Item href="#signin">Sign In</NavDropdown.Item>
     <NavDropdown.Item href="#signup">Sign Up</NavDropdown.Item>
               {/* <NavDropdown.Divider />
@@ -74,7 +77,7 @@ function NavbarToon() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+<Button className="search-btn">Search</Button>
           </Form>
 
         </Navbar.Collapse>
