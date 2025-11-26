@@ -8,7 +8,7 @@ export default function PartnershipBox() {
         className="
           w-full 
           max-w-full  
-          bg-[#e9faff]
+          bg-[#F8F9FA]
           border border-gray-300 
           rounded-lg
           px-8 py-2       
@@ -19,7 +19,7 @@ export default function PartnershipBox() {
         "
       >
         {/* Teks kiri */}
-        <h2 className="text-black font-bold text-sm sm:text-base text-center sm:text-left">
+        <h2 className="text-[#66c7ff] font-bold text-sm sm:text-base text-center sm:text-left">
         DALAM KEMITRAAN
         </h2>
 

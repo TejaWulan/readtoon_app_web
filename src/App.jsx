@@ -4,7 +4,7 @@ import Banner from "./components/Banner"
 import React from "react";
 import Navbar from "./components/Navbar"; 
 import Hero from "./components/home/Hero"; 
-import Genre from "./components/home/Genre_temp";
+import Favorite from "./components/home/Favorite";
 import Separate from "./components/home/Separate";
 import Footer from "./components/Footer"
 import TabGenre from "./components/home/TabGenre"
@@ -15,11 +15,8 @@ export default function App() {
       <Navbar />
       <Hero/>
       <Separate/>
-      <TabGenre/>
-      <div className="mt-10 text-center">
-        <h1 className="text-xl font-semibold">Favorite Comic</h1>
-        <Genre/>
-      </div>
+              <Favorite/>
+              <TabGenre/>
         <div className="w-full min-h-screen flex flex-col">
       <div className="flex-grow">
       </div>
