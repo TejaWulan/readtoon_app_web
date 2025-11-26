@@ -1,28 +1,29 @@
-import { lazy } from "react"
-import Banner from "./components/Banner"
-//const Home = lazy(()  => import('./Pages/Home'))
-import React from "react";
-import Navbar from "./components/Navbar"; 
-import Hero from "./components/home/Hero"; 
-import Favorite from "./components/home/Favorite";
-import Separate from "./components/home/Separate";
-import Footer from "./components/Footer"
-import TabGenre from "./components/home/TabGenre"
+import "./App.css";
+import { BrowserRouter , Routes, Route } from "react-router-dom";
+import Layout from "./Pages/Layout";
+import { lazy } from "react";
+import { Suspense } from "react";
+import Loading from "./components/Loading";
 
-export default function App() {
+// Homepage
+const Home = lazy(() => import('./Pages/Home'))
+
+function App() {
   return (
-    <div className="w-full min-h-screen bg-white">
-      <Navbar />
-      <Hero/>
-      <Separate/>
-              <Favorite/>
-              <TabGenre/>
-        <div className="w-full min-h-screen flex flex-col">
-      <div className="flex-grow">
-      </div>
-      <Footer />
-    </div>
-    </div>
-    
+    <BrowserRouter>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            {/* <Route path="/product" element={<Product />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/detail/:id" element={<BlogDetail />} /> */}
+          </Route>
+        </Routes>
+      </Suspense>
+    </BrowserRouter >
   );
 }
+
+export default App;

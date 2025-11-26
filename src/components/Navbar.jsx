@@ -9,7 +9,7 @@ import "boxicons/css/boxicons.min.css";
 
 function NavbarToon() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary shadow-sm">
+    <Navbar expand="lg" className="bg-body-tertiary shadow-sm w-full">
       <Container fluid>
         <Navbar.Brand href="#" className="d-flex align-items-center gap-2">
           <img

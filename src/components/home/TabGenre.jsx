@@ -169,7 +169,7 @@ const TabbedImageGallery = () => {
       />
       
       <p style={{ marginTop: 20, fontSize: '0.85em', color: '#888' }}>
-        *Gulir (scroll) ke samping di area gambar untuk melihat semua konten secara horizontal.
+       Scroll sideways to see all content
       </p>
     </div>
   );
