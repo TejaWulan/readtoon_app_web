@@ -8,7 +8,7 @@ import TabGenre from "../components/home/TabGenre";
 import Pamflet from "../components/home/PamfletImage";
 function Home() {
   return (
-    <div className="w-full"> 
+<div className="w-full overflow-hidden">
       <Hero/>
               <Favorite/>
               <Pamflet/>

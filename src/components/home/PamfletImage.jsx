@@ -4,7 +4,6 @@ import PamfletImage from "../../assets/img/pamflet/musicvideo.png";
 export default function Hero() {
   return (
     <section className="relative w-full h-[100px] md:h-[200px] lg:h-[200px] overflow-hidden">
-      {/* Background Image */}
       <img
         src={PamfletImage}
         alt="Pamflet"

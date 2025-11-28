@@ -2,7 +2,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-body-tertiary shadow-sm text-black-300 pt-10 pb-6 px-6">
+<footer className="w-full bg-body-tertiary shadow-sm text-black px-10 pt-10 pb-6">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10">
 
         {/* Brand */}
@@ -31,7 +31,7 @@ export default function Footer() {
             <a href="#" className="hover:text-[#66c7ff]"><FaFacebookF /></a>
             <a href="https://www.instagram.com/tejawulan05/?hl=id" className="hover:text-[#66c7ff]"><FaInstagram /></a>
             <a href="#" className="hover:text-[#66c7ff]"><FaTwitter /></a>
-            <a href="#" className="hover:text-[#66c7ff]"><FaYoutube /></a>
+            <a href="https://youtube.com/shorts/c04f_m3L19I" className="hover:text-[#66c7ff]"><FaYoutube /></a>
           </div>
         </div>
 

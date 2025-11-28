@@ -7,11 +7,14 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import logoDark from "../assets/macatoon.png"; 
 import "boxicons/css/boxicons.min.css";
 
+import { Link } from "react-router-dom";
+
+
 function NavbarToon() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary shadow-sm w-full">
       <Container fluid>
-        <Navbar.Brand href="#" className="d-flex align-items-center gap-2">
+        <Navbar.Brand as= {Link} to ="/" className="d-flex align-items-center gap-2">
           <img
             src={logoDark}
             alt="macatoon logo icon"
@@ -35,13 +38,13 @@ function NavbarToon() {
             navbarScroll
           >
              {/* Trend */}
-  <Nav.Link href="#trend" className="d-flex align-items-center gap-1 text-[#66c7ff] font-semibold  ">
+  <Nav.Link as= {Link} to ="/trend" className="d-flex align-items-center gap-1 text-[#66c7ff] font-semibold  ">
     <i className="bx bx-like fs-5 d-inline-block" style={{ lineHeight: 1 }}></i>
     Trend
   </Nav.Link>
 
   {/* Shop */}
-  <Nav.Link href="#shop" className="d-flex align-items-center gap-1 text-[#66c7ff] font-semibold ">
+  <Nav.Link as= {Link} to="/shop" className="d-flex align-items-center gap-1 text-[#66c7ff] font-semibold ">
     <i className="bx bx-cart fs-5 d-inline-block" style={{ lineHeight: 1 }}></i>
     Shop
   </Nav.Link>
@@ -58,10 +61,10 @@ function NavbarToon() {
   }
 >
 
-    <NavDropdown.Item href="#signin">Sign In</NavDropdown.Item>
-    <NavDropdown.Item href="#signup">Sign Up</NavDropdown.Item>
+<NavDropdown.Item as={Link} to="/signup">Sign Up</NavDropdown.Item>
+<NavDropdown.Item as={Link} to="/signin">Sign In</NavDropdown.Item>
               {/* <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item as= {Link} to="#action5">
                 Something else here
               </NavDropdown.Item> */}
             </NavDropdown>
