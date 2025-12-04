@@ -32,29 +32,28 @@ import Comic25 from "../../assets/img/serial/image_manhwa25.jpg";
 import Comic26 from "../../assets/img/serial/image_manhwa26.jpg";
 import Comic27 from "../../assets/img/serial/image_manhwa27.jpg";
 
-// Untuk membersihkan kode, kita buat objek pemetaan gambar
 const comicImages = {
   Comic1, Comic2, Comic3, Comic4, Comic5, Comic6, Comic7, Comic8, Comic9, Comic10,
   Comic11, Comic12, Comic13, Comic14, Comic15, Comic16, Comic17, Comic18, Comic19,
   Comic25, Comic26, Comic27 , Comic20, Comic21, Comic22, Comic23, Comic24,
 };
 
-// --- 2. DATA TAB (MENGGUNAKAN VARIABEL IMPOR LANGSUNG) ---
+// DATA TAB 
 const tabData = [
   {
     key: '1',
     label: 'Kingdom',
     images: [
      
-      { url: Comic2, alt: 'Arah Komik 2'}, 
-      { url: Comic4, alt: 'Arah Komik 4' },
-      { url: Comic17, alt: 'Arah Komik 17' },
-      { url: Comic19, alt: 'Arah Komik 19' },
-      { url: Comic20, alt: 'Arah Komik 20' },
-      { url: Comic22, alt: 'Arah Komik 22' },
-      { url: Comic25, alt: 'Arah Komik 25' },
-      { url: Comic26, alt: 'Arah Komik 26' },
-      { url: Comic27, alt: 'Arah Komik 27' },
+      { url: Comic2, alt: 'Kingdom 1'}, 
+      { url: Comic4, alt: 'Kingdom 2' },
+      { url: Comic17, alt: 'Kingdom 3' },
+      { url: Comic19, alt: 'Kingdom 4' },
+      { url: Comic20, alt: 'Kingdom 5' },
+      { url: Comic22, alt: 'Kingdom 6' },
+      { url: Comic25, alt: 'Kingdom 7' },
+      { url: Comic26, alt: 'Kingdom 8' },
+      { url: Comic27, alt: 'Kingdom 9' },
     ],
   },
   {
@@ -119,18 +118,18 @@ const HorizontalImageList = ({ images }) => {
       {images.map((img, index) => (
         <div key={index} style={{ 
           flexShrink: 0, 
-          width: 180, // Ukuran dikurangi sedikit agar lebih banyak gambar terlihat di satu layar
+          width: 180, 
           textAlign: 'center' 
         }}>
           <img 
-            src={img.url} // Di sini img.url sudah berupa string URL yang benar
-            alt={img.alt} 
-            style={{ 
-              width: '100%', 
-              height: 250, // Ditingkatkan sedikit agar lebih terlihat
-              objectFit: 'cover', 
-              borderRadius: 6,
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+            src={img.url} 
+          style={{
+    width: '100%',
+    height: 250,
+    objectFit: 'cover',
+    borderRadius: 6,
+    boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+    display: 'block'
             }}
           />
           <p style={{ marginTop: 8, fontSize: '0.9em', color: '#555' }}>{img.alt}</p>
@@ -151,12 +150,13 @@ const TabbedImageGallery = () => {
   }));
 
   return (
-    <div style={{ 
-      width: '95vw', 
-      maxWidth: '1400px', 
-      margin: '20px auto', 
-      fontFamily: 'Arial, sans-serif'
-    }}>
+ <div style={{ 
+  width: '95%',  
+  maxWidth: '1400px',
+  margin: '20px auto',
+  fontFamily: 'Arial, sans-serif'
+}}>
+
       <h1 style={{ textAlign: 'center', marginBottom: 30, color: '#66c7ff' }}>
         Choose your favourite genre
       </h1>
@@ -164,7 +164,7 @@ const TabbedImageGallery = () => {
       <Tabs
         defaultActiveKey="1"
         items={tabItems}
-        type="card" // Menggunakan tipe card agar tab lebih menonjol
+        type="card" 
         style={{ borderBottom: '2px solid #eee' }}
       />
       

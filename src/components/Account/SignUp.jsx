@@ -1,42 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  AutoComplete,
   Button,
-  Cascader,
-  Checkbox,
-  Col,
   Form,
   Input,
   InputNumber,
-  Row,
   Select,
   Space,
+  Checkbox,
 } from "antd";
-
-const residences = [
-  {
-    value: "zhejiang",
-    label: "Zhejiang",
-    children: [
-      {
-        value: "hangzhou",
-        label: "Hangzhou",
-        children: [{ value: "xihu", label: "West Lake" }],
-      },
-    ],
-  },
-  {
-    value: "jiangsu",
-    label: "Jiangsu",
-    children: [
-      {
-        value: "nanjing",
-        label: "Nanjing",
-        children: [{ value: "zhonghuamen", label: "Zhong Hua Men" }],
-      },
-    ],
-  },
-];
 
 // Layout label dan input
 const formItemLayout = {
@@ -58,27 +29,35 @@ export default function SignUp() {
     console.log("Received values:", values);
   };
 
+  // PREFIX TELEPON
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
-        style={{ width: 70 }}
-        defaultValue={"86"}
+        style={{ width: 90 }}
+        defaultValue={"+62"}
         options={[
-          { label: "+86", value: "86" },
-          { label: "+87", value: "87" },
+          { label: "+49", value: "+49" },
+          { label: "+33", value: "+33" },
+          { label: "+44", value: "+44" },
+          { label: "+31", value: "+31" },
+          { label: "+61", value: "+61" },
+          { label: "+62", value: "+62" },
         ]}
       />
     </Form.Item>
   );
 
+  // SUFFIX TOPUP
   const suffixSelector = (
     <Form.Item name="suffix" noStyle>
       <Select
-        style={{ width: 70 }}
+        style={{ width: 90 }}
         defaultValue={"USD"}
         options={[
-          { label: "$", value: "USD" },
-          { label: "¥", value: "CNY" },
+          { label: "$ (USD)", value: "USD" },
+          { label: "£ (GBP)", value: "GBP" },
+          { label: "€ (EUR)", value: "EUR" },
+          { label: "Rp (IDR)", value: "IDR" },
         ]}
       />
     </Form.Item>
@@ -97,10 +76,7 @@ export default function SignUp() {
         form={form}
         name="register"
         onFinish={onFinish}
-        initialValues={{
-          residence: ["zhejiang", "hangzhou", "xihu"],
-          prefix: "86",
-        }}
+        initialValues={{ prefix: "+62" }}
         style={{
           maxWidth: 600,
           margin: "0 auto",
@@ -146,9 +122,7 @@ export default function SignUp() {
                 if (!value || getFieldValue("password") === value) {
                   return Promise.resolve();
                 }
-                return Promise.reject(
-                  new Error("Passwords do not match!")
-                );
+                return Promise.reject(new Error("Passwords do not match!"));
               },
             }),
           ]}
@@ -165,20 +139,11 @@ export default function SignUp() {
           <Input />
         </Form.Item>
 
-        {/* Residence */}
-        <Form.Item
-          name="residence"
-          label="Residence"
-          rules={[{ required: true, message: "Please select residence!" }]}
-        >
-          <Cascader options={residences} />
-        </Form.Item>
-
         {/* Phone */}
         <Form.Item
           name="phone"
           label="Phone"
-          rules={[{ required: true, message: "Please input phone!" }]}
+          rules={[{ required: true, message: "Please input phone number!" }]}
         >
           <Space.Compact block>
             {prefixSelector}
@@ -238,25 +203,26 @@ export default function SignUp() {
           </Checkbox>
         </Form.Item>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <Form.Item {...tailFormItemLayout}>
-          <Button
-            type="primary"
-            htmlType="submit"
-            style={{ width: "100%" }}
-            className="register-btn"
-          >
-            Register
-          </Button>
-        </Form.Item>
+       <Button
+    type="primary"
+    htmlType="submit"
+    style={{ width: "100%" }}
+    className="register-btn"
+  >
+    Register
+     </Button>
+    </Form.Item>
       </Form>
 
-      {/* CUSTOM CSS BUTTON ACTIVE */}
+      {/* CUSTOM CSS */}
       <style>{`
         .register-btn:active {
           background-color: #66C7FF !important;
           border-color: #66C7FF !important;
         }
+          
       `}</style>
     </div>
   );

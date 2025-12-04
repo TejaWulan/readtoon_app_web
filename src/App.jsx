@@ -3,7 +3,7 @@ import { BrowserRouter , Routes, Route } from "react-router-dom";
 import Layout from "./Pages/Layout";
 import { lazy } from "react";
 import { Suspense } from "react";
-import Loading from "./components/Loading/index";
+import Loading from "./components/loading/index";
 
 // Homepage
 const Home = lazy(() => import('./Pages/Home'))

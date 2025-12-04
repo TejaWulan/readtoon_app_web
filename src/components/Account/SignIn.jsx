@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Checkbox, Form, Input } from "antd";
-import Logomacatoon from "../../assets/macatoon.png";
 
 const onFinish = (values) => {
   console.log("Success:", values);
@@ -32,15 +31,7 @@ const SignIn = () => (
         textAlign: "center",
       }}
     >
-      {/* LOGO */}
-      <img
-        src={Logomacatoon}
-        alt="logo"
-        style={{
-          width: "90px",
-          marginBottom: "20px",
-        }}
-      />
+      
 
       <Form
         name="basic"
@@ -91,7 +82,6 @@ const SignIn = () => (
       </Form>
     </div>
 
-    {/* Custom CSS for active state */}
     <style>
       {`
         .ant-btn-primary:active {

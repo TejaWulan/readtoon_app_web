@@ -16,11 +16,8 @@ import Comic6 from "../../assets/img/serial/image_manhwa6.jpg";
 
 export default function Genre_temp() {
   
-  // Menggabungkan judul dan Swiper ke dalam satu elemen <div /> yang dikembalikan
   return (
-    <div className="py-8"> {/* Tambahkan padding vertikal */}
-      
-      {/* 1. Judul (Sekarang ada di dalam return) */}
+    <div className="py-8"> 
       <div className="mt-10 text-center mb-8 px-4">
         <h1 className="text-3xl text-[#66c7ff] font-bold tracking-tight">
           Favorite Comic
@@ -32,16 +29,15 @@ export default function Genre_temp() {
 
       {/* 2. Swiper Carousel */}
       <Swiper
-        slidesPerView={2.2} // Dibuat sedikit lebih dari 2 agar ada preview slide berikutnya
-        spaceBetween={16} // Ditingkatkan sedikit
+        slidesPerView={2.2} 
+        spaceBetween={16} 
         freeMode={true}
         pagination={{ clickable: true }}
         breakpoints={{
           640: { slidesPerView: 3.2, spaceBetween: 20 }, // tablet
-          1024: { slidesPerView: 5.5, spaceBetween: 30 }, // desktop (menampilkan lebih banyak)
+          1024: { slidesPerView: 5.5, spaceBetween: 30 }, // desktop 
         }}
         modules={[FreeMode, Pagination]}
-        // Padding horizontal di Swiper dihapus agar konten bisa menyentuh tepi layar (untuk estetika carousel)
         className="mySwiper w-full h-full"
       >
         {[Comic1, Comic2, Comic3, Comic4, Comic5, Comic6].map((img, index) => (
