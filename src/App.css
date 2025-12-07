@@ -49,7 +49,6 @@ html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
-  /* Atur min-height 100% agar konten memenuhi setidaknya tinggi layar */
   min-height: 100vh; 
   box-sizing: border-box; /* Memastikan padding dan border tidak menambah lebar/tinggi */
   overflow-x: hidden; /* Mencegah scroll horizontal yang tidak perlu */
@@ -69,3 +68,9 @@ body {
 }
 
 /* Kelas tambahan dari Tailwind/Ant Design dapat ditambahkan di sini */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+

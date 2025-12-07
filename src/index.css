@@ -69,32 +69,7 @@ button:focus-visible {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* .embla {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
 
-.embla__viewport {
-  overflow: hidden;
-  width: 100%;
-}
-
-.embla__container {
-  display: flex;
-}
-
-.embla__slide {
-  position: relative;
-  min-width: 100%;
-}
-
-.embla__slide__img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
 
 .embla {
   overflow: hidden;
@@ -107,11 +82,12 @@ button:focus-visible {
 
 .embla__container {
   display: flex;
+  will-change: transform;
 }
 
+
 .embla__slide {
-  min-width: 100%;
-  flex: 0 0 100%;
+  flex: 0 0 100% !important; /* width 100% dari viewport */
 }
 
 .nav-account-dropdown .dropdown-toggle::after {
@@ -142,4 +118,36 @@ button:focus-visible {
 }
 html, body {
   overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.swiper {
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.swiper-wrapper {
+  width: 100% !important;
+}
+
+.swiper-slide {
+  max-width: 100% !important;
+}
+
+.overflow-row {
+  overflow-x: auto;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
 }

@@ -10,8 +10,8 @@ export default function Hero() {
   const slides = [Element1, Element2, Element3, Element4];
 
   return (
-<section className="w-full overflow-hidden flex justify-center">
-  <div className="w-full max-w-[1440px] overflow-hidden">
+<section className="w-full overflow-x-hidden flex justify-center">
+<div className="w-full max-w-[1440px] overflow-x-hidden">
     <EmblaCarousel slides={slides} options={{ loop: true }} />
   </div>
 </section>

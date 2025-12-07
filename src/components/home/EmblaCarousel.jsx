@@ -17,10 +17,8 @@ const EmblaCarousel = ({ slides, options }) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container flex">
           {slides.map((src, i) => (
-            <div
-              className="embla__slide w-full h-[240px] md:h-[450px] flex-shrink-0"
-              key={i}
-            >
+        <div className="embla__slide h-[240px] md:h-[450px]">
+
               <img
                 src={src}
                 alt=""
