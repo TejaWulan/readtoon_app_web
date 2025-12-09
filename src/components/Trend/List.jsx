@@ -1,6 +1,13 @@
 import React from 'react';
 import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
 import { Avatar, List, Space } from 'antd';
+
+const imageList = [
+  "https://images.saymedia-content.com/.image/c_limit,cs_srgb,q_auto:eco,w_400/MjAzODE2NzYyNDk5MDE2MjUy/the-best-kingdom-building-manhwa-webtoons-you-must-read.webp",
+  "https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_350/MjAzODE2NzYyNDk4NjIyOTcx/the-best-kingdom-building-manhwa-webtoons-you-must-read.webp",
+  "https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MjAzODE2NzYyNDk5NTQwNTQw/the-best-kingdom-building-manhwa-webtoons-you-must-read.webp",
+];
+
 const data = Array.from({ length: 23 }).map((_, i) => ({
   href: 'https://ant.design',
   title: `ant design part ${i}`,
@@ -8,14 +15,17 @@ const data = Array.from({ length: 23 }).map((_, i) => ({
   description:
     'Ant Design, a design language for background applications, is refined by Ant UED Team.',
   content:
-    'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+    'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure).',
+  image: imageList[i % imageList.length] // Gambar berputar 1–3
 }));
+
 const IconText = ({ icon, text }) => (
   <Space>
     {React.createElement(icon)}
     {text}
   </Space>
 );
+
 const App = () => (
   <List
     itemLayout="vertical"
@@ -27,11 +37,6 @@ const App = () => (
       pageSize: 3,
     }}
     dataSource={data}
-    footer={
-      <div>
-        <b>ant design</b> footer part
-      </div>
-    }
     renderItem={item => (
       <List.Item
         key={item.title}
@@ -44,8 +49,9 @@ const App = () => (
           <img
             draggable={false}
             width={272}
-            alt="logo"
-            src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+            style={{ borderRadius: 8 }}
+            alt="preview"
+            src={item.image}
           />
         }
       >
@@ -59,4 +65,5 @@ const App = () => (
     )}
   />
 );
+
 export default App;

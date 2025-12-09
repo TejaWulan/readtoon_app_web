@@ -12,7 +12,7 @@ const onFinishFailed = (errorInfo) => {
 const SignIn = () => (
   <div
     style={{
-      backgroundColor: "#F8F9FA",
+      backgroundColor: "#FFFFFF", 
       minHeight: "100vh",
       display: "flex",
       justifyContent: "center",
@@ -27,12 +27,10 @@ const SignIn = () => (
         background: "white",
         padding: "30px",
         borderRadius: "14px",
-        boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+        boxShadow: "0 6px 20px rgba(0,0,0,0.12)", 
         textAlign: "center",
       }}
     >
-      
-
       <Form
         name="basic"
         layout="vertical"

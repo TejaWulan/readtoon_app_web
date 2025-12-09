@@ -3,7 +3,6 @@ import React from "react";
 import { Tabs } from 'antd'; 
 
 // --- 1. IMPOR GAMBAR & PEMETAAN VARIABEL ---
-// Lakukan semua impor aset Anda seperti biasa.
 import Comic1 from "../../assets/img/serial/image_manhwa1.jpg";
 import Comic2 from "../../assets/img/serial/image_manhwa2.jpg";
 import Comic3 from "../../assets/img/serial/image_manhwa3.jpg";

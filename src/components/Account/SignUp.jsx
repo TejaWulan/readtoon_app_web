@@ -67,7 +67,7 @@ export default function SignUp() {
     <div
       style={{
         minHeight: "100vh",
-        backgroundColor: "#F8F9FA",
+        backgroundColor: "#FFFFF",
         padding: "40px 20px",
       }}
     >
@@ -83,7 +83,7 @@ export default function SignUp() {
           background: "#fff",
           padding: "40px",
           borderRadius: "12px",
-          boxShadow: "0 2px 10px rgba(0, 0, 0, 0.06)",
+        boxShadow: "0 6px 20px rgba(0,0,0,0.12)", 
         }}
         scrollToFirstError
       >
@@ -130,11 +130,20 @@ export default function SignUp() {
           <Input.Password />
         </Form.Item>
 
-        {/* Nickname */}
+        {/* Name */}
         <Form.Item
-          name="nickname"
-          label="Nickname"
+          name="Name"
+          label="Name"
           rules={[{ required: true, message: "Please input nickname!" }]}
+        >
+          <Input />
+        </Form.Item>
+        
+    {/* user.name */}
+        <Form.Item
+          name="UserName"
+          label="UserName"
+          rules={[{ required: true, message: "Please input user_name" }]}
         >
           <Input />
         </Form.Item>
@@ -163,7 +172,7 @@ export default function SignUp() {
         <Form.Item
           name="intro"
           label="Intro"
-          rules={[{ required: true, message: "Please input Intro!" }]}
+          rules={[{ required: false, message: "Please input Intro!" }]}
         >
           <Input.TextArea showCount maxLength={100} />
         </Form.Item>
