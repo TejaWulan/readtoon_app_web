@@ -1,15 +1,6 @@
 import React from "react";
-import {
-  Button,
-  Form,
-  Input,
-  InputNumber,
-  Select,
-  Space,
-  Checkbox,
-} from "antd";
+import { Button, Form, Input, InputNumber, Select, Space, Checkbox, message } from "antd";
 
-// Layout label dan input
 const formItemLayout = {
   labelCol: { xs: { span: 24 }, sm: { span: 8 } },
   wrapperCol: { xs: { span: 24 }, sm: { span: 16 } },
@@ -25,16 +16,52 @@ const tailFormItemLayout = {
 export default function SignUp() {
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log("Received values:", values);
+  const onFinish = async (values) => {
+    // 🔹 mapping sesuai backend
+    const body = {
+      access: {
+        source: "web",
+      },
+      payload: {
+        email: values.email,
+        password: values.password,
+        name: values.name,
+        username: values.username,
+        phone: `${values.prefix}${values.phone}`,
+        balance: values.balance || 0,
+        currency: values.currency || "IDR",
+        intro: values.intro,
+        gender: values.gender,
+      },
+    };
+
+    try {
+      const res = await fetch("/v1/account/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+
+      if (data.status !== 7200) {
+        message.error(data.message);
+        return;
+      }
+
+      message.success("Register success!");
+      form.resetFields();
+    } catch (err) {
+      message.error("Failed to register");
+    }
   };
 
-  // PREFIX TELEPON
   const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
+    <Form.Item name="prefix" noStyle initialValue="+62">
       <Select
         style={{ width: 90 }}
-        defaultValue={"+62"}
         options={[
           { label: "+49", value: "+49" },
           { label: "+33", value: "+33" },
@@ -47,43 +74,34 @@ export default function SignUp() {
     </Form.Item>
   );
 
-  // SUFFIX TOPUP
-  const suffixSelector = (
-    <Form.Item name="suffix" noStyle>
+  const currencySelector = (
+    <Form.Item name="currency" noStyle initialValue="IDR">
       <Select
         style={{ width: 90 }}
-        defaultValue={"USD"}
         options={[
+          { label: "Rp (IDR)", value: "IDR" },
           { label: "$ (USD)", value: "USD" },
           { label: "£ (GBP)", value: "GBP" },
           { label: "€ (EUR)", value: "EUR" },
-          { label: "Rp (IDR)", value: "IDR" },
         ]}
       />
     </Form.Item>
   );
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        backgroundColor: "#FFFFF",
-        padding: "40px 20px",
-      }}
-    >
+    <div style={{ minHeight: "100vh", padding: "40px 20px" }}>
       <Form
         {...formItemLayout}
         form={form}
         name="register"
         onFinish={onFinish}
-        initialValues={{ prefix: "+62" }}
         style={{
           maxWidth: 600,
           margin: "0 auto",
           background: "#fff",
           padding: "40px",
           borderRadius: "12px",
-        boxShadow: "0 6px 20px rgba(0,0,0,0.12)", 
+          boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
         }}
         scrollToFirstError
       >
@@ -132,18 +150,18 @@ export default function SignUp() {
 
         {/* Name */}
         <Form.Item
-          name="Name"
+          name="name"
           label="Name"
-          rules={[{ required: true, message: "Please input nickname!" }]}
+          rules={[{ required: true, message: "Please input name!" }]}
         >
           <Input />
         </Form.Item>
-        
-    {/* user.name */}
+
+        {/* Username */}
         <Form.Item
-          name="UserName"
-          label="UserName"
-          rules={[{ required: true, message: "Please input user_name" }]}
+          name="username"
+          label="Username"
+          rules={[{ required: true, message: "Please input username!" }]}
         >
           <Input />
         </Form.Item>
@@ -161,20 +179,16 @@ export default function SignUp() {
         </Form.Item>
 
         {/* Balance */}
-        <Form.Item name="balance" label="TopUp Balance">
+        <Form.Item name="balance" label="Top Up Balance">
           <Space.Compact block>
             <InputNumber style={{ width: "100%" }} />
-            {suffixSelector}
+            {currencySelector}
           </Space.Compact>
         </Form.Item>
 
         {/* Intro */}
-        <Form.Item
-          name="intro"
-          label="Intro"
-          rules={[{ required: false, message: "Please input Intro!" }]}
-        >
-          <Input.TextArea showCount maxLength={100} />
+        <Form.Item name="intro" label="Intro">
+          <Input.TextArea maxLength={100} showCount />
         </Form.Item>
 
         {/* Gender */}
@@ -207,32 +221,16 @@ export default function SignUp() {
           ]}
           {...tailFormItemLayout}
         >
-          <Checkbox>
-            I agree to the <a href="">agreement</a>
-          </Checkbox>
+          <Checkbox>I agree to the agreement</Checkbox>
         </Form.Item>
 
         {/* Submit */}
         <Form.Item {...tailFormItemLayout}>
-       <Button
-    type="primary"
-    htmlType="submit"
-    style={{ width: "100%" }}
-    className="register-btn"
-  >
-    Register
-     </Button>
-    </Form.Item>
+          <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
+            Register
+          </Button>
+        </Form.Item>
       </Form>
-
-      {/* CUSTOM CSS */}
-      <style>{`
-        .register-btn:active {
-          background-color: #66C7FF !important;
-          border-color: #66C7FF !important;
-        }
-          
-      `}</style>
     </div>
   );
 }

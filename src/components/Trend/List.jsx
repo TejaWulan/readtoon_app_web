@@ -3,7 +3,7 @@ import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
 import { Avatar, List, Space } from 'antd';
 
 const imageList = [
-  "https://drive.google.com/file/d/1gysPv7MqUBu2dff5orKBOG9cTgcY3nCF/view?usp=drivesdk",
+  "https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_400/MjAzODE2NzYyNDk5MTQ3MzI0/the-best-kingdom-building-manhwa-webtoons-you-must-read.webp",
   "https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_350/MjAzODE2NzYyNDk4NjIyOTcx/the-best-kingdom-building-manhwa-webtoons-you-must-read.webp",
   "https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MjAzODE2NzYyNDk5NTQwNTQw/the-best-kingdom-building-manhwa-webtoons-you-must-read.webp",
 ];
