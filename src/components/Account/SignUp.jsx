@@ -17,7 +17,6 @@ export default function SignUp() {
   const [form] = Form.useForm();
 
   const onFinish = async (values) => {
-    // 🔹 mapping sesuai backend
     const body = {
       access: {
         source: "web",
@@ -36,7 +35,7 @@ export default function SignUp() {
     };
 
     try {
-      const res = await fetch("/v1/account/register", {
+      const res = await fetch("${API_URL}/account/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
